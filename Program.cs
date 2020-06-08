@@ -10,7 +10,7 @@ namespace Bingo_Number_Generator
         {
             
             System.Console.WriteLine("Please enter suer upper limit");
-            var userInt = Console.Read();
+            var userInt = 99;
             Draw d1 = new Draw(userInt);
             d1.DrawNextNum();
             d1.DrawNextNum();
@@ -18,8 +18,10 @@ namespace Bingo_Number_Generator
             d1.DrawNextNum();
             d1.DrawNextNum();
             d1.DrawNextNum();
-            Console.Read();
+            d1.DrawStorage.ForEach(Console.WriteLine);
             
+            
+
         }
     }
 
