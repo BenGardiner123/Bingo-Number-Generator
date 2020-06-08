@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Bingo_Number_Generator
 {
@@ -8,35 +9,57 @@ namespace Bingo_Number_Generator
         static void Main(string[] args)
         {
             
+            System.Console.WriteLine("Please enter suer upper limit");
+            var userInt = Console.Read();
+            Draw d1 = new Draw(userInt);
+            d1.DrawNextNum();
+            d1.DrawNextNum();
+            d1.DrawNextNum();
+            d1.DrawNextNum();
+            d1.DrawNextNum();
+            d1.DrawNextNum();
+            Console.Read();
+            
         }
     }
 
     class Draw {
-        public int min;
+        
         public int upperlimit;
         public List<int> DrawStorage;
 
         Random rand = new Random();
 
-        public Draw(int upperlimit)
+        public Draw(int limit)
         {
-
-            this.upperlimit = upperlimit;
+            this.upperlimit = limit;
             this.DrawStorage = new List<int>();
 
         }
 
         public void DrawNextNum(){
-            bool validNum = false;
+            var validNum = false; // exit condition
+            
             var randnum = rand.Next(1, this.upperlimit);
-            while (validNum == false)
+            
+    
+                while (validNum == false) 
+                {
+                    if (!DrawStorage.Contains(randnum))
+                    {
+                        validNum = true; 
+                    }
+                    else
+                    {
+                        randnum = rand.Next(1, this.upperlimit);
+                    }
 
 
+                }
 
-
-            return randnum;
-        }
+                DrawStorage.Add(randnum);
         
+            }
 
     }
 
