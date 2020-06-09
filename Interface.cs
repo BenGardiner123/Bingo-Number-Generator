@@ -114,11 +114,3 @@ namespace Bingo_Number_Generator
 
 
 
-/*  if (targetInt < 0)
-          {
-              Console.WriteLine("You should not enter a negative number");
-              checkNuminList();
-          }
-          else if (targetInt) */
-int number;
-            if (Int32.TryParse(targetInt, out number);
