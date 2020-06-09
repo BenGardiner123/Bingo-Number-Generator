@@ -51,27 +51,40 @@ namespace Bingo_Number_Generator
             while (keepGoing)
             {
 
-                int index = .DrawStorage.IndexOf(targetInt); ///this checks ans sees if the targetint is in the list
-                if (index > 0)//if it is there it reurns a "1"
+                int index = draw.DrawStorage.IndexOf(targetInt); ///this checks ans sees if the targetint is in the list
+                if (index >= 0)//if it is there it reurns a "1"
                 {
                     Console.WriteLine(targetInt + " Has been located, and i can confirm it has been drawn previously");
+
+                    ////
                 }
-                else if (index < 0)
+                else
                 {
                     Console.WriteLine("Your number has not been drawn - its fresh");
-                    Console.WriteLine("\nTo check another number press 1 ");
-                    Console.WriteLine(" Otherwise press 2 to return to main menu");
-                    int userChoice = Console.Read();
-                    if (userChoice == 1)
-                    {
-                        keepGoing = true;
-                    }
-                    else if (userChoice == 2)
-                    {
-                        keepGoing = false;
-                    }
+              
                 }
-             
+                    bool validInput = false;
+                    while (!validInput)
+                    { 
+                        Console.WriteLine("\nTo check another number press 1 ");
+                        Console.WriteLine(" Otherwise press 2 to return to main menu");
+                        /////needs ome validation here (loop)
+                        var userChoice = Console.Read();///if i use the .read here it gets the ASCI value for that character - so this way it it has
+                        if (userChoice == 49) /// using 
+                        {
+                            keepGoing = true;
+                            validInput = true;
+                        }
+                        else if (userChoice == 50)
+                        {
+                            keepGoing = false;
+                            validInput = true;
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("invalid input");///need to then return it to the top of the list
+                        }
+                    }
 
             }
 

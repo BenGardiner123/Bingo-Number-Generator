@@ -11,3 +11,16 @@ C:\Users\Cooler Master\Documents\swinburne\Bingo-Number-Generator\bin\Debug\netc
 C:\Users\Cooler Master\Documents\swinburne\Bingo-Number-Generator\bin\Debug\netcoreapp3.1\Bingo-Number-Generator.dll
 C:\Users\Cooler Master\Documents\swinburne\Bingo-Number-Generator\bin\Debug\netcoreapp3.1\Bingo-Number-Generator.pdb
 C:\Users\Cooler Master\Documents\swinburne\Bingo-Number-Generator\obj\Debug\netcoreapp3.1\Bingo-Number-Generator.genruntimeconfig.cache
+C:\Users\User\Desktop\Bingo-Number-Generator\bin\Debug\netcoreapp3.1\Bingo-Number-Generator.exe
+C:\Users\User\Desktop\Bingo-Number-Generator\bin\Debug\netcoreapp3.1\Bingo-Number-Generator.deps.json
+C:\Users\User\Desktop\Bingo-Number-Generator\bin\Debug\netcoreapp3.1\Bingo-Number-Generator.runtimeconfig.json
+C:\Users\User\Desktop\Bingo-Number-Generator\bin\Debug\netcoreapp3.1\Bingo-Number-Generator.runtimeconfig.dev.json
+C:\Users\User\Desktop\Bingo-Number-Generator\bin\Debug\netcoreapp3.1\Bingo-Number-Generator.dll
+C:\Users\User\Desktop\Bingo-Number-Generator\bin\Debug\netcoreapp3.1\Bingo-Number-Generator.pdb
+C:\Users\User\Desktop\Bingo-Number-Generator\obj\Debug\netcoreapp3.1\Bingo-Number-Generator.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Bingo-Number-Generator\obj\Debug\netcoreapp3.1\Bingo-Number-Generator.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Bingo-Number-Generator\obj\Debug\netcoreapp3.1\Bingo-Number-Generator.AssemblyInfo.cs
+C:\Users\User\Desktop\Bingo-Number-Generator\obj\Debug\netcoreapp3.1\Bingo-Number-Generator.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Bingo-Number-Generator\obj\Debug\netcoreapp3.1\Bingo-Number-Generator.dll
+C:\Users\User\Desktop\Bingo-Number-Generator\obj\Debug\netcoreapp3.1\Bingo-Number-Generator.pdb
+C:\Users\User\Desktop\Bingo-Number-Generator\obj\Debug\netcoreapp3.1\Bingo-Number-Generator.genruntimeconfig.cache
