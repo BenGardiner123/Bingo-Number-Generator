@@ -11,9 +11,9 @@ namespace Bingo_Number_Generator
 
         Random rand = new Random();
 
-        public Draw()
+        public Draw(int limit)
         {
-            
+            this.upperlimit = limit;
             this.DrawStorage = new List<int>();
 
         }
@@ -68,7 +68,7 @@ namespace Bingo_Number_Generator
             while (!goOn)
             {
                 System.Console.WriteLine("Please enter an upper limit for your bingo # range");
-                var userInput = Console.ReadLine();
+                var userInput = "furfhf";
                 var userInput_1 = Convert.ToInt32(userInput);
                 
                 int result = 0;
