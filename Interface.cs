@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Bingo_Number_Generator
 {
@@ -25,7 +27,7 @@ namespace Bingo_Number_Generator
             Console.WriteLine("4. Enter a list of numbers to check against drawn list");
             Console.WriteLine("5. Exit");
 
-    
+
 
 
         }
@@ -44,28 +46,30 @@ namespace Bingo_Number_Generator
         {
 
             Console.WriteLine("Enter your number to check if it has been drawn..");
-            int targetInt = Console.Read();
-
-            bool keepGoing = true;
-
-            while (keepGoing)
+            string targetInt = Console.ReadLine();
+            int number;
+            if (Int32.TryParse(targetInt, out number))
             {
-
-                int index = draw.DrawStorage.IndexOf(targetInt); ///this checks ans sees if the targetint is in the list
-                if (index >= 0)//if it is there it reurns a "1"
+                bool keepGoing = true;
+                while (keepGoing)
                 {
-                    Console.WriteLine(targetInt + " Has been located, and i can confirm it has been drawn previously");
+                
+                    int newInt = Convert.ToInt32(targetInt);// now that im past the sentinel value need to work with an int
+                    int index = draw.DrawStorage.IndexOf(newInt); ///this checks ans sees if the targetint is in the list
+                    if (index >= 0)//if it is there it reurns a "1"
+                    {
+                        Console.WriteLine(newInt + " Has been located, and i can confirm it has been drawn previously");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Your number has not been drawn - its fresh");
 
-                    ////
-                }
-                else
-                {
-                    Console.WriteLine("Your number has not been drawn - its fresh");
-              
-                }
+                    }
+                    
                     bool validInput = false;
+                    
                     while (!validInput)
-                    { 
+                    {
                         Console.WriteLine("\nTo check another number press 1 ");
                         Console.WriteLine(" Otherwise press 2 to return to main menu");
                         /////needs ome validation here (loop)
@@ -86,9 +90,14 @@ namespace Bingo_Number_Generator
                         }
                     }
 
+                }
+
+
             }
-
-
+            else
+            {
+                Console.WriteLine("You failed to enter a readable selection - please try again");
+            }    
             
 
 
@@ -96,7 +105,20 @@ namespace Bingo_Number_Generator
         }
 
 
+
     }
 
 
 }
+
+
+
+
+/*  if (targetInt < 0)
+          {
+              Console.WriteLine("You should not enter a negative number");
+              checkNuminList();
+          }
+          else if (targetInt) */
+int number;
+            if (Int32.TryParse(targetInt, out number);
