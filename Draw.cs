@@ -8,6 +8,7 @@ namespace Bingo_Number_Generator
 
         public int upperlimit;
         public List<int> DrawStorage;
+        ///public List<int> SortedOrder; 
 
         Random rand = new Random();
 
@@ -32,7 +33,7 @@ namespace Bingo_Number_Generator
             //console writlien 1 option as they were drawn
             this.DrawStorage.ForEach(Console.WriteLine);
             ///option two they get srtoed into numercial order - might have to make a new list to copy them and sort them
-
+            
 
         }
 
@@ -58,6 +59,7 @@ namespace Bingo_Number_Generator
             }
 
             DrawStorage.Add(randnum);
+            ///SortedOrder.add(radnnum); this list then gets sorted when you access it to print for option3.ii 
 
         }
 
