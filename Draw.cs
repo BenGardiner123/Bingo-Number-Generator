@@ -84,7 +84,7 @@ namespace Bingo_Number_Generator
 
                 if (userInput_1 <= 0)
                 {
-                    Console.WriteLine(result + " .... really?" + " Only Positive Numbers Please .. try again");
+                    Console.WriteLine(result + " .... really?" + " Only above zero Numbers Please .. try again");
                     continue;
                 }
                 
