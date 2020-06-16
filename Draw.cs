@@ -70,19 +70,23 @@ namespace Bingo_Number_Generator
             while (!goOn)
             {
                 System.Console.WriteLine("Please enter an upper limit for your bingo # range");
-                var userInput = "furfhf";
-                var userInput_1 = Convert.ToInt32(userInput);
+                var userInput = Console.ReadLine();
+                
                 
                 int result = 0;
-                if (int.TryParse(userInput, out result))
+                if (int.TryParse(userInput, out result)) /// so this will test whter the input is aprsable - if not then it should go to the else and then give them the message and then return to the top
                 {
-                
-                Console.WriteLine(result + " .... really?" + " Only Numbers Please... try again");
-                continue;
+                    if (result > 0)
+                    {
+                        Console.WriteLine(result + " .... really?" + " Only Numbers Please... try again");
+                        goOn = true; /// so if the loop gets here it's passed the parse test.!-- We would then want the loop to exit
+                        upperlimit = result;
+                    }
+                    
 
                 }
 
-                if (userInput_1 <= 0)
+                if (result <= 0) /// not sure this is in the right spot.!--.!-- probs need to remove
                 {
                     Console.WriteLine(result + " .... really?" + " Only above zero Numbers Please .. try again");
                     continue;
@@ -90,11 +94,7 @@ namespace Bingo_Number_Generator
                 
                 else
                 {
-                    System.Console.WriteLine("You have set your upper limit");
-                    userInput_1 = this.upperlimit;
-
-                    goOn = true;
-                       
+                       Console.WriteLine("check the loop is doing the right thing here")
                 }
 
             }
