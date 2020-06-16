@@ -26,7 +26,56 @@ namespace Bingo_Number_Generator
             Console.WriteLine("3. Check specific number");
             Console.WriteLine("4. Enter a list of numbers to check against drawn list");
             Console.WriteLine("5. Exit");
+
+        ///2.	Upon pressing “1” a new number is drawn
+        ///i.	No duplicate numbers should be drawn
+        ///ii.	No negative numbers should be drawn
+        ///im thinking i use the same functionality of the upper limit menu to try and force correct input.
+         var userInput = Console.ReadLine();
+         bool goOn = false;
+            while (!goOn)
+            {
+                int result = 0;
+                if (int.TryParse(userInput, out result)) /// so this will test whter the input is aprsable - if not then it should go to the else and then give them the message and then return to the top
+                {
+                    if (result > 0)
+                    {
+                        Console.WriteLine(result + " excellent choice " + result + " is a fine number");
+                        goOn = true; /// so if the loop gets here it's passed the parse test.!-- We would then want the loop to exit
+                        upperlimit = result;
+                    }
+                    else // if it comes here that means that the result was not greater than 0... so a -1 etc... we cant have that so
+                    {
+                        Console.WriteLine ( result + " " + " .... really? " + " Only above zero Numbers Please .. try again");
+                    }
+
+                }
+                else
+                {
+                       Console.WriteLine(" .... really? " + " Please enter just a number.. no words .. try again");
+                }
+
+            }
+            
+            mainMenu();
+
         }
+
+
+
+
+
+
+        ///3.	Upon pressing “2” all drawn numbers should be printed
+        ///i.	Provide an option to print all numbers in the order that they were drawn
+        ///ii.	Provide an option to print all numbers in numerical order
+
+        /// 4.	Upon pressing “3” user is prompted to enter numbers one by one to check if they have been drawn
+
+        ///5.	Upon pressing “4” the program will exit 
+        }
+
+
         public void viewAllDrawnnums()
         {
 
