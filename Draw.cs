@@ -78,19 +78,19 @@ namespace Bingo_Number_Generator
                 {
                     if (result > 0)
                     {
-                        Console.WriteLine(result + " excellent choice" + result + " is a fine number");
+                        Console.WriteLine(result + " excellent choice " + result + " is a fine number");
                         goOn = true; /// so if the loop gets here it's passed the parse test.!-- We would then want the loop to exit
                         upperlimit = result;
                     }
                     else // if it comes here that means that the result was not greater than 0... so a -1 etc... we cant have that so
                     {
-                        Console.WriteLine ( result + " .... really?" + "Only above zero Numbers Please .. try again");
+                        Console.WriteLine ( result + " " + " .... really? " + " Only above zero Numbers Please .. try again");
                     }
 
                 }
                 else
                 {
-                       Console.WriteLine("check the loop is doing the right thing here");
+                       Console.WriteLine(" .... really? " + " Please enter just a number.. no words .. try again");
                 }
 
             }
