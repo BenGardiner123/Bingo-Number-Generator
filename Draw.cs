@@ -38,11 +38,11 @@ namespace Bingo_Number_Generator
             bool goOn = false; // sentinel value for my while loop
             while (!goOn)
             {
-                string userInput = Console.ReadLine();
-                int result = 0;
-                if (int.TryParse(userInput, out result)) /// so this will test whter the input is parsable - if not then it should go to the else and then give them the message and then return to the top
+                string userInput = Console.ReadLine(); // store the user choice from the menu
+                int result = 0; // this stores the result if tryParse works.
+                if (int.TryParse(userInput, out result)) /// so this will test whether the input is parsable - if not then it should go to the else and then give them the message and then return to the top
                 {
-                    if (result > 0)
+                    if (result > 0) //so here is the first test - need to check that the number is in the range of the menu - so need to set something at the top.
                     {
                         Console.WriteLine(result + " excellent choice " + result + " is a fine number");
                         goOn = true; /// so if the loop gets here it's passed the parse test.!-- We would then want the loop to exit
