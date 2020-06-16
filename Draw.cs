@@ -21,49 +21,49 @@ namespace Bingo_Number_Generator
          public void mainMenu()
         {  
             ///think i need to have some kind of condition here to catch the exit button--- so keep coming back to the top here and choosing numbers unitl "5" gets enetered.
-
-            Console.WriteLine("Welcome to the Swinburne Bingo Club");
-            Console.WriteLine("1. Draw next number");
-            Console.WriteLine("2. View all drawn numbers");
-            Console.WriteLine("3. Check specific number");
-            Console.WriteLine("4. Enter a list of numbers to check against drawn list");
-            Console.WriteLine("5. Exit");
-
-        ///2.	Upon pressing “1” a new number is drawn
-        ///i.	No duplicate numbers should be drawn
-        ///ii.	No negative numbers should be drawn
-        ///im thinking i use the same functionality of the upper limit menu to try and force correct input.
-
-         
-            bool goOn = false; // sentinel value for my while loop
-            while (!goOn)
+            int validInput = 0; // this is going to be the menu num
+            while (validInput != 5)
             {
-                string userInput = Console.ReadLine(); // store the user choice from the menu
-                int result = 0; // this stores the result if tryParse works.
-                if (int.TryParse(userInput, out result)) /// so this will test whether the input is parsable - if not then it should go to the else and then give them the message and then return to the top
+                Console.WriteLine("Welcome to the Swinburne Bingo Club");
+                Console.WriteLine("1. Draw next number");
+                Console.WriteLine("2. View all drawn numbers");
+                Console.WriteLine("3. Check specific number");
+                Console.WriteLine("4. Enter a list of numbers to check against drawn list");
+                Console.WriteLine("5. Exit");
+
+            ///2.	Upon pressing “1” a new number is drawn
+            ///i.	No duplicate numbers should be drawn
+            ///ii.	No negative numbers should be drawn
+            ///im thinking i use the same functionality of the upper limit menu to try and force correct input.
+
+            
+                bool goOn = false; // sentinel value for my while loop
+                while (!goOn)
                 {
-                    if (result > 0) //so here is the first test - need to check that the number is in the range of the menu - so need to set something at the top.
+                    string userInput = Console.ReadLine(); // store the user choice from the menu
+                    int result = 0; // this stores the result if tryParse works.
+                    if (int.TryParse(userInput, out result)) /// so this will test whether the input is parsable - if not then it should go to the else and then give them the message and then return to the top
                     {
-                        Console.WriteLine(result + " excellent choice " + result + " is a fine number");
-                        goOn = true; /// so if the loop gets here it's passed the parse test.!-- We would then want the loop to exit
-                        upperlimit = result;
+                        if (result > 0 &&  result <= 5) //so here is the first test - need to check that the number is in the range of the menu - so need to set something at the top.
+                        {
+                          //// the flow goes here  
+                        }    
+                        else // if it comes here that means that the result was not greater than 0... so a -1 etc... we cant have that so
+                        {
+                            Console.WriteLine ( result + " " + " .... really? " + " Please choose a number from the menu.. try again");
+                        }
+
                     }
-                    else // if it comes here that means that the result was not greater than 0... so a -1 etc... we cant have that so
+                    else
                     {
-                        Console.WriteLine ( result + " " + " .... really? " + " Only above zero Numbers Please .. try again");
+                        Console.WriteLine(" .... really? " + " Please enter just a number.. no words .. try again"); /// again thsi catches the non - numercial input.
                     }
 
                 }
-                else
-                {
-                       Console.WriteLine(" .... really? " + " Please enter just a number.. no words .. try again");
-                }
+                
+                mainMenu();
 
             }
-            
-            mainMenu();
-
-        }
 
 
 
