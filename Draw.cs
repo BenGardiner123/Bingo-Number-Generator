@@ -73,7 +73,7 @@ namespace Bingo_Number_Generator
         /// 4.	Upon pressing “3” user is prompted to enter numbers one by one to check if they have been drawn
 
         ///5.	Upon pressing “4” the program will exit 
-        }
+    
 
 
         public void viewAllDrawnnums()
