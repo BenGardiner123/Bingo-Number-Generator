@@ -46,7 +46,7 @@ namespace Bingo_Number_Generator
                     {
                         if (result > 0 &&  result <= 5) //so here is the first test - need to check that the number is in the range of the menu - so need to set something at the top.
                         {
-                          //// the flow goes here  
+                          Console.WriteLine ( "testing" );
                         }    
                         else // if it comes here that means that the result was not greater than 0... so a -1 etc... we cant have that so
                         {
@@ -68,7 +68,7 @@ namespace Bingo_Number_Generator
 
 
 
-
+        }
 
         ///3.	Upon pressing “2” all drawn numbers should be printed
         ///i.	Provide an option to print all numbers in the order that they were drawn
