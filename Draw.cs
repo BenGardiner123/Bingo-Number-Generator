@@ -8,7 +8,7 @@ namespace Bingo_Number_Generator
 
         public int upperlimit;
         public List<int> DrawStorage;
-        ///public List<int> SortedOrder; 
+        ///public List<int> SortedOrder; // thinking to use another list to sort..!--.!-- not sure i need it tho
 
         Random rand = new Random();
 
@@ -20,6 +20,8 @@ namespace Bingo_Number_Generator
         }
          public void mainMenu()
         {  
+            ///think i need to have some kind of condition here to catch the exit button--- so keep coming back to the top here and choosing numbers unitl "5" gets enetered.
+
             Console.WriteLine("Welcome to the Swinburne Bingo Club");
             Console.WriteLine("1. Draw next number");
             Console.WriteLine("2. View all drawn numbers");
@@ -31,12 +33,14 @@ namespace Bingo_Number_Generator
         ///i.	No duplicate numbers should be drawn
         ///ii.	No negative numbers should be drawn
         ///im thinking i use the same functionality of the upper limit menu to try and force correct input.
-         var userInput = Console.ReadLine();
-         bool goOn = false;
+
+         
+            bool goOn = false; // sentinel value for my while loop
             while (!goOn)
             {
+                string userInput = Console.ReadLine();
                 int result = 0;
-                if (int.TryParse(userInput, out result)) /// so this will test whter the input is aprsable - if not then it should go to the else and then give them the message and then return to the top
+                if (int.TryParse(userInput, out result)) /// so this will test whter the input is parsable - if not then it should go to the else and then give them the message and then return to the top
                 {
                     if (result > 0)
                     {
