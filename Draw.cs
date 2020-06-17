@@ -30,6 +30,7 @@ namespace Bingo_Number_Generator
                 Console.WriteLine("3. Check specific number");
                 Console.WriteLine("4. Enter a list of numbers to check against drawn list");
                 Console.WriteLine("5. Exit");
+                Console.WriteLine("Please make a selection");
 
             ///2.	Upon pressing “1” a new number is drawn
             ///i.	No duplicate numbers should be drawn
@@ -67,8 +68,9 @@ namespace Bingo_Number_Generator
                 if (validInput == 1)
                 {
                     DrawNextNum();
+                    
                 }
-
+                
                 
 
             }
@@ -126,6 +128,7 @@ namespace Bingo_Number_Generator
             }
 
             DrawStorage.Add(randnum);
+            Console.WriteLine(randnum + " has just been drawn");
             ///SortedOrder.add(radnnum); this list then gets sorted when you access it to print for option3.ii 
             mainMenu();
 
