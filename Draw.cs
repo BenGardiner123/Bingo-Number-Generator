@@ -70,7 +70,33 @@ namespace Bingo_Number_Generator
                     DrawNextNum();
                     
                 }
-                
+
+                ///3.	Upon pressing “2” all drawn numbers should be printed
+                ///i.	Provide an option to print all numbers in the order that they were drawn
+                ///ii.	Provide an option to print all numbers in numerical order
+
+                else if (validInput == 2)
+                {
+                    bool menuCheck = false;
+                    while (!menuCheck)
+                    {
+                        
+                        Console.WriteLine("1. Print all numbers in the order that they were drawn");
+                        Console.WriteLine("2. Print all numbers in numerical order");
+
+                        if (true)
+                        {
+                            
+
+                        }
+                        
+
+
+
+
+                    }
+                    
+                }
                 
 
             }
