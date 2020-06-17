@@ -60,8 +60,16 @@ namespace Bingo_Number_Generator
                     }
 
                 }
+                ///2.	Upon pressing “1” a new number is drawn
+                ///i.	No duplicate numbers should be drawn
+                ///ii.	No negative numbers should be drawn
+                ///im thinking i use the same functionality of the upper limit menu to try and force correct input.
+                if (validInput == 1)
+                {
+                    DrawNextNum();
+                }
+
                 
-                mainMenu();
 
             }
 
@@ -78,6 +86,12 @@ namespace Bingo_Number_Generator
 
         ///5.	Upon pressing “4” the program will exit 
     
+
+
+
+
+
+
 
 
         public void viewAllDrawnnums()
@@ -113,6 +127,7 @@ namespace Bingo_Number_Generator
 
             DrawStorage.Add(randnum);
             ///SortedOrder.add(radnnum); this list then gets sorted when you access it to print for option3.ii 
+            mainMenu();
 
         }
 
