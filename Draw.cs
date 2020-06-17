@@ -41,16 +41,16 @@ namespace Bingo_Number_Generator
                 while (!goOn)
                 {
                     string userInput = Console.ReadLine(); // store the user choice from the menu
-                    int result = 0; // this stores the result if tryParse works.
-                    if (int.TryParse(userInput, out result)) /// so this will test whether the input is parsable - if not then it should go to the else and then give them the message and then return to the top
+                    
+                    if (int.TryParse(userInput, out validInput)) /// so this will test whether the input is parsable - if not then it should go to the else and then give them the message and then return to the top
                     {
-                        if (result > 0 &&  result <= 5) //so here is the first test - need to check that the number is in the range of the menu - so need to set something at the top.
+                        if (validInput >= 0 &&  validInput <= 5) //so here is the first test - need to check that the number is in the range of the menu - so need to set something at the top.
                         {
-                          Console.WriteLine ( "testing" );
+                          goOn = true;
                         }    
                         else // if it comes here that means that the result was not greater than 0... so a -1 etc... we cant have that so
                         {
-                            Console.WriteLine ( result + " " + " .... really? " + " Please choose a number from the menu.. try again");
+                            Console.WriteLine (  " Only numbers please " + " Please choose a number from the menu.. try again");
                         }
 
                     }
