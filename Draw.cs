@@ -77,19 +77,25 @@ namespace Bingo_Number_Generator
 
                 else if (validInput == 2)
                 {
-                    bool menuCheck = false;
+                    bool menuCheck = false; // again set up the exit trigger
                     while (!menuCheck)
                     {
                         
                         Console.WriteLine("1. Print all numbers in the order that they were drawn");
                         Console.WriteLine("2. Print all numbers in numerical order");
+                        string userChoice = Console.ReadLine(); // need to try parse
 
-                        if (true)
+                        int result = 0;
+                        if (int.TryParse(userChoice, out result)) //so if the user input is parseable its a number
                         {
                             
+                            if (result == 1)
 
                         }
-                        
+                        else /// so if the parse fails it must be letters or something else
+                        {
+                            Console.WriteLine (userChoice + " .... really?" + " Only Numbers Please... try again");
+                        }
 
 
 
@@ -106,14 +112,14 @@ namespace Bingo_Number_Generator
 
         }
 
-        ///3.	Upon pressing “2” all drawn numbers should be printed
-        ///i.	Provide an option to print all numbers in the order that they were drawn
-        ///ii.	Provide an option to print all numbers in numerical order
+        
 
         /// 4.	Upon pressing “3” user is prompted to enter numbers one by one to check if they have been drawn
 
         ///5.	Upon pressing “4” the program will exit 
     
+
+
 
 
 
