@@ -37,7 +37,7 @@ namespace Bingo_Number_Generator
             ///im thinking i use the same functionality of the upper limit menu to try and force correct input.
 
             
-                bool goOn = false; // sentinel value for my while loop
+                bool goOn = false; // exit value for my while loop
                 while (!goOn)
                 {
                     string userInput = Console.ReadLine(); // store the user choice from the menu
