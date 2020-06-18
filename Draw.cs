@@ -122,6 +122,13 @@ namespace Bingo_Number_Generator
                     }
                     
                 }
+                /// 4.	Upon pressing “3” user is prompted to enter numbers one by one to check if they have been drawn
+                else if (validInput == 3)
+                {
+                    checkNuminList();
+
+
+                }
                 
 
             }
@@ -133,7 +140,7 @@ namespace Bingo_Number_Generator
 
         
 
-        /// 4.	Upon pressing “3” user is prompted to enter numbers one by one to check if they have been drawn
+        
 
         ///5.	Upon pressing “4” the program will exit 
     
@@ -252,7 +259,7 @@ namespace Bingo_Number_Generator
                 
                     int newInt = Convert.ToInt32(targetInt);// now that im past the sentinel value need to work with an int
                     int index = DrawStorage.IndexOf(newInt); ///this checks ans sees if the targetint is in the list
-                    if (index >= 0)//if it is there it reurns a "1"
+                    if (index >= 0)//if it is there it reurns true
                     {
                         Console.WriteLine(newInt + " Has been located, and i can confirm it has been drawn previously");
                     }
@@ -267,7 +274,7 @@ namespace Bingo_Number_Generator
                     while (!validInput)
                     {
                         Console.WriteLine("\nTo check another number press 1 ");
-                        Console.WriteLine(" Otherwise press 2 to return to main menu");
+                        Console.WriteLine("Otherwise press 2 to return to main menu");
                         /////needs ome validation here (loop)
                         var userChoice = Console.Read();///if i use the .read here it gets the ASCI value for that character - so this way it it has
                         if (userChoice == 49) /// using 
@@ -282,7 +289,7 @@ namespace Bingo_Number_Generator
                         }
                         else
                         {
-                            System.Console.WriteLine("invalid input");///need to then return it to the top of the list
+                            System.Console.WriteLine("invalid input try again...1");///need to then return it to the top of the list
                         }
                     }
 
@@ -292,7 +299,7 @@ namespace Bingo_Number_Generator
             }
             else
             {
-                Console.WriteLine("You failed to enter a readable selection - please try again");
+                Console.WriteLine("You failed to enter a number - please try again");
             }    
             
 
