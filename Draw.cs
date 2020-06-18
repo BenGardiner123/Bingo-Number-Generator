@@ -146,6 +146,7 @@ namespace Bingo_Number_Generator
                 2.	Program will not accept negative numbers and handle
                 3.	Create a new menu option that allows a list of numbers to be entered.  These will all be checked to see if they have been drawn. */
                 ///https://stackoverflow.com/questions/26622240/c-sharp-user-input-int-to-array
+                 ///https://docs.microsoft.com/en-us/dotnet/csharp/how-to/parse-strings-using-split (omg omg omg this is the first time im understanding the microsoft documentation!!!!!)
                 {
                     bool menuCheck = false; // again set up the exit trigger (this one was taken from above)
                     while (!menuCheck)
@@ -154,7 +155,8 @@ namespace Bingo_Number_Generator
                         Console.WriteLine("1. Enter a list of numbers, these will all be checked to see if they have been drawn.");
                         Console.WriteLine("2. To return to the main menu");
                         string userChoice = Console.ReadLine(); // need to try parse
-
+                        string[] separatingStrings = {" ", ",", "-", "."};
+                        string[] words = userChoice.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
                         int result = 0;
                         if (int.TryParse(userChoice, out result)) //so if the user input is parseable its a number
                         {
