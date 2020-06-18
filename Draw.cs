@@ -34,10 +34,10 @@ namespace Bingo_Number_Generator
                 Console.WriteLine("5. Exit");
                 Console.WriteLine("Please make a selection");
 
-            ///2.	Upon pressing “1” a new number is drawn
-            ///i.	No duplicate numbers should be drawn
-            ///ii.	No negative numbers should be drawn
-            ///im thinking i use the same functionality of the upper limit menu to try and force correct input.
+                ///2.	Upon pressing “1” a new number is drawn
+                ///i.	No duplicate numbers should be drawn
+                ///ii.	No negative numbers should be drawn
+                ///im thinking i use the same functionality of the upper limit menu to try and force correct input.
 
             
                 bool goOn = false; // exit value for my while loop
@@ -107,6 +107,7 @@ namespace Bingo_Number_Generator
                             }
                             else if (result == 3)
                             {
+                                menuCheck = true;
                                 mainMenu();
                             }
 
@@ -139,76 +140,15 @@ namespace Bingo_Number_Generator
                     
 
 
-                }
-                
-                else if (validInput == 4)               
-                //3.	Create a new menu option that allows a list of numbers to be entered.  These will all be checked to see if they have been drawn. 
-                ///https://stackoverflow.com/questions/26622240/c-sharp-user-input-int-to-array
-                ///https://stackoverflow.com/questions/18700333/int-tryparse-out-into-an-object-array
-                ///https://docs.microsoft.com/en-us/dotnet/csharp/how-to/parse-strings-using-split (omg omg omg this is the first time im understanding the microsoft documentation!!!!!)
+                }                
+                else if (validInput == 4)
                 {
-                    bool menuCheck = false; // again set up the exit trigger (this one was taken from above)
-                    while (!menuCheck)
-                    {
-                        Console.WriteLine("1. Select this to input a series of numbers to check agsainst the draw list.");
-                        Console.WriteLine("2. Select this to input a series of numbers to check agsainst the draw list.");
-                        string userChoice = Console.ReadLine();
-                        if (int.TryParse(userChoice, out int result))
-                        {
-                             if (result <= 0)
-                            {
-                                Console.WriteLine (userChoice + "....oh.... thats not a valid input only the numbers 1 or 2 please... try again");
-                            }
-                            if (result == 1)
-                            {
-                                Console.WriteLine("Please enter your numbers with spaces between..");
-                                string userInput = Console.ReadLine();
-                                string[] separatingStrings = {" ", ",", "-", "."}; /// these are the main one 
-                                string[] userCheckList = userInput.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
-                                for (int i = 0; i < userCheckList.Length; i++)
-                                {
-                                    bool success = int.TryParse(userCheckList[i],out int chkdAndVerified);
 
-                                    if (success)
-                                    {
-                                        if(!this.DrawStorage.Contains(chkdAndVerified))
-                                        {
-                                           Console.WriteLine(chkdAndVerified + " Does not exist in the list so therefore has not been drawn"); 
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine(userCheckList[i] + " Exists in the list so therefore has been drawn previously");
-                                        }
-                                    }
-                                   
-                                }
-                                
-                            }
-                            if (result == 2)
-                            {   
-                                menuCheck = true;
-                                mainMenu();
-                            }
-                            
-                        }
-                        else 
-                        {
-                            Console.WriteLine (userChoice + "....oh.... thats not a valid input only the numbers 1 or 2 please... try again");
-                        }
-                        
-                    }
-                    
-                }
-                //5. Upon pressing “4” the program will exit 
-                else if (validInput == 5)
-                {
                     Console.WriteLine("Thanks for playing.. see you next time");
                     break;
                 }
 
             }
-
-
 
 
         }
