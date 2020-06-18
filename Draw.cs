@@ -164,6 +164,10 @@ namespace Bingo_Number_Generator
                                 string userInput = Console.ReadLine();
                                 string[] separatingStrings = {" ", ",", "-", "."}; /// these are the main one 
                                 string[] userCheckList = userInput.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                                for (int i = 0; i < userCheckList.Length; i++)
+                                {
+                                    bool success = int.TryParse(userCheckList[i],out int chkdAndVerified);
+                                }
                                 
                             }
                             if (result == 2)
