@@ -151,7 +151,7 @@ namespace Bingo_Number_Generator
                     while (!menuCheck)
                     {
                         Console.WriteLine("1. Select this to input a series of numbers to check agsainst the draw list.");
-                        Console.WriteLine("2. Select this to input a series of numbers to check agsainst the draw list.");
+                        Console.WriteLine("2. Select this to return to the main menu.");
                         string userChoice = Console.ReadLine();
                         if (int.TryParse(userChoice, out int result))
                         {
@@ -161,44 +161,63 @@ namespace Bingo_Number_Generator
                             }
                             if (result == 1)
                             {
+                                bool whileStopper = false;
                                 Console.WriteLine("Please enter your numbers with spaces between..");
-                                string userInput = Console.ReadLine();
-                                string[] separatingStrings = {" ", ",", "-", "."}; /// these are the main one 
-                                string[] userCheckList = userInput.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
-                                for (int i = 0; i < userCheckList.Length; i++)
+                                while (!whileStopper)
                                 {
-                                    bool success = int.TryParse(userCheckList[i],out int chkdAndVerified);
-
-                                    if (success)
+                                    
+                                    string userInput = Console.ReadLine();
+                                    
+                                    string[] separatingStrings = {" ", ",","."}; /// these are the main ones 
+                                    string[] userCheckList = userInput.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries); // /null entries covered here.
+                                    
+                                    for (int i = 0; i < userCheckList.Length; i++)
                                     {
-                                        if(!this.DrawStorage.Contains(chkdAndVerified))
+                                        int.TryParse(userCheckList[i], out int maybeNeg);
+                                        if ( maybeNeg < 0)
                                         {
-                                           Console.WriteLine(chkdAndVerified + " Does not exist in the list so therefore has not been drawn"); 
+                                        Console.WriteLine("thats not a valid input only the numbers 1 or 2 please... try again");  
+                                        }
+                                        
+                                    }
+
+                                    for (int i = 0; i < userCheckList.Length; i++)
+                                    {
+                                        bool success = int.TryParse(userCheckList[i],out int chkdAndVerified);
+
+                                        if (success)
+                                        {
+                                            if(!this.DrawStorage.Contains(chkdAndVerified))
+                                            {
+                                            Console.WriteLine(chkdAndVerified + " Does not exist in the list so therefore has not been drawn"); 
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine(userCheckList[i] + " Exists in the list so therefore has been drawn previously");
+                                            }
                                         }
                                         else
                                         {
-                                            Console.WriteLine(userCheckList[i] + " Exists in the list so therefore has been drawn previously");
+                                            Console.WriteLine(userCheckList[i] + " Thats not a number, try again");
                                         }
+                                    
                                     }
-                                   
-                                }
                                 
-                            }
-                            if (result == 2)
-                            {   
-                                menuCheck = true;
-                                mainMenu();
-                            }
+                                }
+                                if (result == 2)
+                                {   
+                                    menuCheck = true;
+                                    mainMenu();
+                                }
                             
                         }
                         else 
                         {
                             Console.WriteLine (userChoice + "....oh.... thats not a valid input only the numbers 1 or 2 please... try again");
                         }
-                        
+
                     }
-                    
-                }
+
                 //5. Upon pressing “4” the program will exit 
                 else if (validInput == 5)
                 {
@@ -208,10 +227,10 @@ namespace Bingo_Number_Generator
 
             }
 
-
-
-
         }
+ 
+    }
+}
 
         ///5.	Upon pressing “4” the program will exit 
 
