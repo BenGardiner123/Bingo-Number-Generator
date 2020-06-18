@@ -93,7 +93,7 @@ namespace Bingo_Number_Generator
                             
                             if (result <= 0)
                             {
-                                viewAllDrawnnums();
+                                Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " Only the numbers 1, 2 or 3 - please... try again");
                             }
                             if (result == 1)
                             {
@@ -113,7 +113,7 @@ namespace Bingo_Number_Generator
                         }
                         else /// so if the parse fails it must be letters or something else
                         {
-                            Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " Only the numbers 1, 2 or 3 - please... try again");
+                            Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " only input the number 1, 2 or 3 - please... try again");
                         }
 
 
