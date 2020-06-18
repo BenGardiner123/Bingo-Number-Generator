@@ -140,11 +140,9 @@ namespace Bingo_Number_Generator
 
 
                 }
-                else if (validInput == 4)
                 
-                /* 1.	Program will not accept non-numeric input and handle
-                2.	Program will not accept negative numbers and handle
-                3.	Create a new menu option that allows a list of numbers to be entered.  These will all be checked to see if they have been drawn. */
+                else if (validInput == 4)               
+                //3.	Create a new menu option that allows a list of numbers to be entered.  These will all be checked to see if they have been drawn. 
                 ///https://stackoverflow.com/questions/26622240/c-sharp-user-input-int-to-array
                  ///https://docs.microsoft.com/en-us/dotnet/csharp/how-to/parse-strings-using-split (omg omg omg this is the first time im understanding the microsoft documentation!!!!!)
                 {
@@ -169,20 +167,25 @@ namespace Bingo_Number_Generator
                             {
                                 Console.WriteLine("Please enter your numbers");
                                 string userList = Console.ReadLine();
-                                string[] separatingStrings = {" ", ",", "-", "."};
+                                
+                                string[] separatingStrings = {" ", ",", "-", "."}; /// these are the main one 
                                 string[] words = userList.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
                                 
                                 
                                 foreach (var nums in words) ///crying with laughter
                                 {
                                     result = 0;
-                                    if(int.TryParse(userList, out result))
+                                    if(int.TryParse(nums, out result))
                                     {
-                                        this.DrawStorage.Add(result);
+                                        if (this.DrawStorage.Contains(result))
+                                        {
+                                        Console.WriteLine(result);
+                                        }
+                                        
                                     }
                                     else
                                     {
-                                        Console.WriteLine (result + "....oh.... thats not a valid input" + " only input the number 1 or 2 please... try again");
+                                        continue;
                                     }
                                 }
                                 
@@ -208,9 +211,6 @@ namespace Bingo_Number_Generator
                     }
                     
                 }
-
-                
-
                 //5.	Upon pressing “4” the program will exit 
                 else if (validInput == 5)
                 {
