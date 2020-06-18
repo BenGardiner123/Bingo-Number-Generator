@@ -72,14 +72,31 @@ namespace Bingo_Number_Generator
                     DrawNextNum();
                     //DrawNextNum includes the mainMenu function at the end so it always returns to the main menu here.
                 }
-
-                ///3.	Upon pressing “2” all drawn numbers should be printed
-                ///i.	Provide an option to print all numbers in the order that they were drawn
-                ///ii.	Provide an option to print all numbers in numerical order
-
                 else if (validInput == 2)
                 {
-                    bool menuCheck = false; // again set up the exit trigger
+                   menuOption2(); 
+                }
+                /// 4.	Upon pressing “3” user is prompted to enter numbers one by one to check if they have been drawn
+                else if (validInput == 3)
+                {
+                   menuOption3();
+                }                
+                else if (validInput == 4)
+                {
+                    Console.WriteLine("Thanks for playing.. see you next time");
+                    break;
+                }
+
+            }
+
+
+        }
+
+        
+
+        public void menuOption2()
+        {
+            bool menuCheck = false; // again set up the exit trigger
                     while (!menuCheck)
                     {
                         
@@ -122,49 +139,29 @@ namespace Bingo_Number_Generator
 
 
                     }
-                    
-                }
-                /// 4.	Upon pressing “3” user is prompted to enter numbers one by one to check if they have been drawn
-                else if (validInput == 3)
-                {
-                    
-                    if (DrawStorage.Count==0)
-                    {
-                       Console.WriteLine("Whoa...Whoa...Whoa....you havent even drawn a number yet" + " Please head back to the main menu and first draw a number..");
-                       mainMenu();
-                    } 
-                    else 
-                    {
-                       checkNuminList();
-                    }
-                    
-
-
-                }                
-                else if (validInput == 4)
-                {
-
-                    Console.WriteLine("Thanks for playing.. see you next time");
-                    break;
-                }
-
-            }
-
-
         }
 
-        ///5.	Upon pressing “4” the program will exit 
+        public void menuOption3()
+        {
+            if (DrawStorage.Count==0)
+            {
+                Console.WriteLine("Whoa...Whoa...Whoa....you havent even drawn a number yet" + " Please head back to the main menu and first draw a number..");
+                mainMenu();
+            } 
+            else 
+            {
+                checkNuminList();
+            }
+        }
 
-      
+
+
 
         public void viewAllDrawnnums()
         {
-
         //console writlien 1 option as they were drawn
         this.DrawStorage.ForEach(Console.WriteLine);
         ///option two they get srtoed into numercial order - might have to make a new list to copy them and sort them
-        
-
         }
 
          public void viewAllNumsinOrder()
@@ -206,7 +203,7 @@ namespace Bingo_Number_Generator
             }
 
             DrawStorage.Add(randnum);
-            Console.WriteLine(randnum + " has just been drawn");
+            Console.WriteLine("\n" + randnum + " has just been drawn");
             ///SortedOrder.add(radnnum); this list then gets sorted when you access it to print for option3.ii 
             mainMenu(); ///beause of the nature of drawing the number they need to go back to the top menu everytime they draw.!-- 
 
@@ -229,13 +226,13 @@ namespace Bingo_Number_Generator
                 {
                     if (result > 0)
                     {
-                        Console.WriteLine(result + " excellent choice " + result + " is a fine number");
+                        Console.WriteLine("\n" + result + " excellent choice " + result + " is a fine number");
                         goOn = true; /// so if the loop gets here it's passed the parse test.!-- We would then want the loop to exit
                         upperlimit = result;
                     }
                     else // if it comes here that means that the result was not greater than 0... so a -1 etc... we cant have that so
                     {
-                        Console.WriteLine ( result + " " + " .... really? " + " Only above zero Numbers Please .. try again");
+                        Console.WriteLine ( result + " " + " .... really? Only positive numbers please .. try again");
                     }
 
                 }
