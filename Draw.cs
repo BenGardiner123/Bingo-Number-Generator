@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Bingo_Number_Generator
 {
@@ -68,7 +69,7 @@ namespace Bingo_Number_Generator
                 if (validInput == 1)
                 {
                     DrawNextNum();
-                    
+                    //DrawNextNum includes the mainMenu function at the end so it always returns to the main menu here.
                 }
 
                 ///3.	Upon pressing “2” all drawn numbers should be printed
@@ -90,11 +91,20 @@ namespace Bingo_Number_Generator
                         {
                             
                             if (result == 1)
+                            {
+                                viewAllDrawnnums();
+                            }
+                            if (result == 2)
+                            {
+                                ///some function that orders DrawStorage - but i need somethnig that doesnt mess up the original order.
+                                viewAllNumsinOrder();
+                            }
+
 
                         }
                         else /// so if the parse fails it must be letters or something else
                         {
-                            Console.WriteLine (userChoice + " .... really?" + " Only Numbers Please... try again");
+                            Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " Only the numbers 1 or 2 please... try again");
                         }
 
 
@@ -137,6 +147,23 @@ namespace Bingo_Number_Generator
             
 
         }
+
+         public void viewAllNumsinOrder()
+        {
+            //dotnetpearls
+            var ordered = from nums in DrawStorage
+                          orderby nums ascending
+                          select nums;
+
+            foreach (int value in DrawStorage)
+            {
+                Console.WriteLine(value);
+            }
+            
+        
+
+        }
+
 
         public void DrawNextNum()
         {
