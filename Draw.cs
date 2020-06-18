@@ -144,6 +144,7 @@ namespace Bingo_Number_Generator
                 else if (validInput == 4)               
                 //3.	Create a new menu option that allows a list of numbers to be entered.  These will all be checked to see if they have been drawn. 
                 ///https://stackoverflow.com/questions/26622240/c-sharp-user-input-int-to-array
+                ///https://stackoverflow.com/questions/18700333/int-tryparse-out-into-an-object-array
                 ///https://docs.microsoft.com/en-us/dotnet/csharp/how-to/parse-strings-using-split (omg omg omg this is the first time im understanding the microsoft documentation!!!!!)
                 {
                     bool menuCheck = false; // again set up the exit trigger (this one was taken from above)
@@ -167,6 +168,19 @@ namespace Bingo_Number_Generator
                                 for (int i = 0; i < userCheckList.Length; i++)
                                 {
                                     bool success = int.TryParse(userCheckList[i],out int chkdAndVerified);
+
+                                    if (success)
+                                    {
+                                        if(DrawStorage.Contains(chkdAndVerified))
+                                        {
+                                           Console.WriteLine(chkdAndVerified + " exists in the list so therefore has been drawn"); 
+                                        }
+                                        
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine (userCheckList[i] + "....oh.... thats not a valid input please... try again");
+                                    }
                                 }
                                 
                             }
