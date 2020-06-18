@@ -9,7 +9,7 @@ namespace Bingo_Number_Generator
 
         public int upperlimit;
         public List<int> DrawStorage;
-        ///public List<int> SortedOrder; // thinking to use another list to sort..!--.!-- not sure i need it tho
+        public List<int> userBulkEntryList; // this is to use when they bulk enter their numbers
 
         Random rand = new Random();
 
@@ -17,6 +17,7 @@ namespace Bingo_Number_Generator
         {
             this.upperlimit = limit;
             this.DrawStorage = new List<int>();
+            this.userBulkEntryList = new List<int>();
 
         }
          public void mainMenu()
@@ -140,6 +141,7 @@ namespace Bingo_Number_Generator
 
                 }
                 else if (validInput == 4)
+                
                 /* 1.	Program will not accept non-numeric input and handle
                 2.	Program will not accept negative numbers and handle
                 3.	Create a new menu option that allows a list of numbers to be entered.  These will all be checked to see if they have been drawn. */
@@ -159,15 +161,26 @@ namespace Bingo_Number_Generator
                             
                             if (result <= 0)
                             {
-                                Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " Only the numbers 1, 2 or 3 - please... try again");
+                                Console.WriteLine (userChoice + "....oh.... thats not a valid input, only the numbers 1 or 2 please... try again");
                                 continue;
                             }
                             if (result == 1)
                             {
-                                ////////// read in all the nubmers
-                                ///then print them out
+                                Console.WriteLine("Please enter your numbers");
+                                string userList = Console.ReadLine();
+                                result = 0;
+                                if(int.TryParse(userList, out result))
+                                {
+                                    
+                                    this.userBulkEntryList.Add(result);
+                                }
+                                else
+                                {
+                                  Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " only input the number 1 or 2 please... try again");
+                                }
+
                             }
-                            if (result == 2)
+                            else if (result == 2)
                             {
                                 menuCheck = true; /// think this why i was getting wierd CWL's when exiting - otherwise the loop keeps going beasue the exit value wasn;t triggerred.
                                 mainMenu();
@@ -188,7 +201,7 @@ namespace Bingo_Number_Generator
                     
                 }
 
-                }
+                
 
                 //5.	Upon pressing “4” the program will exit 
                 else if (validInput == 5)
