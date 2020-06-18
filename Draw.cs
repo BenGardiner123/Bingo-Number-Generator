@@ -125,11 +125,30 @@ namespace Bingo_Number_Generator
                 /// 4.	Upon pressing “3” user is prompted to enter numbers one by one to check if they have been drawn
                 else if (validInput == 3)
                 {
-                    checkNuminList();
+                    
+                    if (DrawStorage.Count==0)
+                    {
+                       Console.WriteLine("Whoa...Whoa...Whoa....you havent even drawn a number yet" + " Please head back to the main menu and first draw a number..");
+                       mainMenu();
+                    } 
+                    else 
+                    {
+                       checkNuminList();
+                    }
+                    
 
 
                 }
-                
+                else if (validInput == 4)
+                {
+
+                    
+                }
+                else if (validInput == 5)
+                {
+                    Console.WriteLine("Thanks for playing.. see you next time");
+                    break;
+                }
 
             }
 
@@ -242,11 +261,13 @@ namespace Bingo_Number_Generator
                 int number;
                 if (Int32.TryParse(targetInt, out number)) /// again this test will find out if it is indeed a # - if not the test fails and we can re-loop 
                 {
+                        
                         int index = DrawStorage.IndexOf(number); ///this checks ans sees if the targetint is in the list
 
                         if (number <= 0) /// this checks user input to make sure it's not negative - if they got this far in the code the parse worked and its a number.!--
                         {
                             Console.WriteLine ( number + " " + " .... really? " + " Only positive numbers please .. try again");
+                            continue;
                         }
                         if (index >= 0)// index defined above - it accessing drawstorage to see if the userinput number is there. Mits returning the index of it which must be 0 or greater if it is there, so then it will return true.
                         {
@@ -254,14 +275,15 @@ namespace Bingo_Number_Generator
                         }
                         else
                         {
-                            Console.WriteLine("Your number has not been drawn - its fresh");
+                            Console.WriteLine("..-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
+                            Console.WriteLine("\nYour number has not been drawn - its fresh");
                         }
                         
                         bool goON = false;
                         while (!goON)
                         {
-                            Console.WriteLine("\nTo check another number press 1 ");
-                            Console.WriteLine("Otherwise press 2 to return to main menu");
+                            Console.WriteLine("\n1. Check another number ");
+                            Console.WriteLine("2. Return to main menu");
                             string userInput = Console.ReadLine();
                             int userMenuNum; // this stores the value form my tryParse
                             if (Int32.TryParse(userInput, out userMenuNum)) /// again this test will find out if it is indeed a # - if not the test fails and we can re-loop 
@@ -276,6 +298,7 @@ namespace Bingo_Number_Generator
                                 }
                                 if (userMenuNum == 2)
                                 {
+                                    goON = true;
                                     mainMenu();
                                 } 
                                 else
@@ -293,7 +316,7 @@ namespace Bingo_Number_Generator
                 }
                 else
                 {
-                    Console.WriteLine(number + ".... really? " + " Please enter just a number.. no words or other funny stuff .. try again");
+                    Console.WriteLine( ".... really? " + " Please enter just a number.. no words or other funny stuff .. try again");
                 }    
             }
         }
