@@ -140,10 +140,57 @@ namespace Bingo_Number_Generator
 
                 }
                 else if (validInput == 4)
+                /* 1.	Program will not accept non-numeric input and handle
+                2.	Program will not accept negative numbers and handle
+                3.	Create a new menu option that allows a list of numbers to be entered.  These will all be checked to see if they have been drawn. */
+                ///https://stackoverflow.com/questions/26622240/c-sharp-user-input-int-to-array
                 {
+                    bool menuCheck = false; // again set up the exit trigger (this one was taken from above)
+                    while (!menuCheck)
+                    {
+                        
+                        Console.WriteLine("1. Enter a list of numbers, these will all be checked to see if they have been drawn.");
+                        Console.WriteLine("2. To return to the main menu");
+                        string userChoice = Console.ReadLine(); // need to try parse
 
+                        int result = 0;
+                        if (int.TryParse(userChoice, out result)) //so if the user input is parseable its a number
+                        {
+                            
+                            if (result <= 0)
+                            {
+                                Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " Only the numbers 1, 2 or 3 - please... try again");
+                                continue;
+                            }
+                            if (result == 1)
+                            {
+                                ////////// read in all the nubmers
+                                ///then print them out
+                            }
+                            if (result == 2)
+                            {
+                                menuCheck = true; /// think this why i was getting wierd CWL's when exiting - otherwise the loop keeps going beasue the exit value wasn;t triggerred.
+                                mainMenu();
+                            }
+                            
+
+
+                        }
+                        else /// so if the parse fails it must be letters or something else
+                        {
+                            Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " only input the number 1 or 2 please... try again");
+                        }
+
+
+
+
+                    }
                     
                 }
+
+                }
+
+                //5.	Upon pressing “4” the program will exit 
                 else if (validInput == 5)
                 {
                     Console.WriteLine("Thanks for playing.. see you next time");
