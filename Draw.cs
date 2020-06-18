@@ -138,21 +138,8 @@ namespace Bingo_Number_Generator
 
         }
 
-        
-
-        
-
         ///5.	Upon pressing “4” the program will exit 
     
-
-
-
-
-
-
-
-
-
 
         public void viewAllDrawnnums()
         {
@@ -166,7 +153,7 @@ namespace Bingo_Number_Generator
 
          public void viewAllNumsinOrder()
         {
-            //from dotnetpearls
+            //from dotnetpearls - - - this is a LINQ query same way we use SQL but in c# baby! the just iterate over the nums stored in the var i created.
             var ordered = from nums in DrawStorage
                           orderby nums ascending
                           select nums;
@@ -205,7 +192,7 @@ namespace Bingo_Number_Generator
             DrawStorage.Add(randnum);
             Console.WriteLine(randnum + " has just been drawn");
             ///SortedOrder.add(radnnum); this list then gets sorted when you access it to print for option3.ii 
-            mainMenu();
+            mainMenu(); ///beause of the nature of drawing the number they need to go back to the top menu everytime they draw.!-- 
 
         }
 
@@ -247,64 +234,58 @@ namespace Bingo_Number_Generator
 
         public void checkNuminList()
         {
-
-            Console.WriteLine("Enter your number to check if it has been drawn..");
-            string targetInt = Console.ReadLine();
-            int number;
-            if (Int32.TryParse(targetInt, out number))
+            bool goOn = true; //exit value
+            while (goOn)
             {
-                bool keepGoing = true;
-                while (keepGoing)
+                Console.WriteLine("Please enter your number to check if it has been drawn..");
+                string targetInt = Console.ReadLine();
+                int number;
+                if (Int32.TryParse(targetInt, out number)) /// again this test will find out if it is indeed a # - if not the test fails and we can re-loop 
                 {
-                
-                    int newInt = Convert.ToInt32(targetInt);// now that im past the sentinel value need to work with an int
-                    int index = DrawStorage.IndexOf(newInt); ///this checks ans sees if the targetint is in the list
-                    if (index >= 0)//if it is there it reurns true
-                    {
-                        Console.WriteLine(newInt + " Has been located, and i can confirm it has been drawn previously");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Your number has not been drawn - its fresh");
+                        int index = DrawStorage.IndexOf(number); ///this checks ans sees if the targetint is in the list
 
-                    }
-                    
-                    bool validInput = false;
-                    
-                    while (!validInput)
-                    {
-                        Console.WriteLine("\nTo check another number press 1 ");
-                        Console.WriteLine("Otherwise press 2 to return to main menu");
-                        /////needs ome validation here (loop)
-                        var userChoice = Console.Read();///if i use the .read here it gets the ASCI value for that character - so this way it it has
-                        if (userChoice == 49) /// using 
+                        if (number <= 0) /// this checks user input to make sure it's not negative - if they got this far in the code the parse worked and its a number.!--
                         {
-                            keepGoing = true;
-                            validInput = true;
+                            Console.WriteLine ( number + " " + " .... really? " + " Only positive numbers please .. try again");
                         }
-                        else if (userChoice == 50)
+                        if (index >= 0)// index defined above - it accessing drawstorage to see if the userinput number is there. Mits returning the index of it which must be 0 or greater if it is there, so then it will return true.
                         {
-                            keepGoing = false;
-                            validInput = true;
+                            Console.WriteLine( number + " Has been located, and i can confirm it has been drawn previously");
                         }
                         else
                         {
-                            System.Console.WriteLine("invalid input try again...1");///need to then return it to the top of the list
+                            Console.WriteLine("Your number has not been drawn - its fresh");
                         }
-                    }
+                        
+                        bool goON = false;
+                        while (!goON)
+                        {
+                            Console.WriteLine("\nTo check another number press 1 ");
+                            Console.WriteLine("Otherwise press 2 to return to main menu");
+                            string userInput = Console.ReadLine();
+                            int userMenuNum;
+                            if (Int32.TryParse(userInput, out userMenuNum)) /// again this test will find out if it is indeed a # - if not the test fails and we can re-loop 
+                            {
+                                if (userMenuNum == 1)
+                                {
+                                    checkNuminList();
+                                }
+                                if (userMenuNum == 2)
+                                {
 
+                                } 
+
+
+                            }
+                            
+                        }
+               
                 }
-
-
+                else
+                {
+                    Console.WriteLine("You failed to enter a number - please try again");
+                }    
             }
-            else
-            {
-                Console.WriteLine("You failed to enter a number - please try again");
-            }    
-            
-
-
-
         }
 
     }
