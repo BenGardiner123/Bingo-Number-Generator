@@ -84,12 +84,17 @@ namespace Bingo_Number_Generator
                         
                         Console.WriteLine("1. Print all numbers in the order that they were drawn");
                         Console.WriteLine("2. Print all numbers in numerical order");
+                        Console.WriteLine("3. To return to the main menu");
                         string userChoice = Console.ReadLine(); // need to try parse
 
                         int result = 0;
                         if (int.TryParse(userChoice, out result)) //so if the user input is parseable its a number
                         {
                             
+                            if (result <= 0)
+                            {
+                                viewAllDrawnnums();
+                            }
                             if (result == 1)
                             {
                                 viewAllDrawnnums();
@@ -99,12 +104,16 @@ namespace Bingo_Number_Generator
                                 ///some function that orders DrawStorage - but i need somethnig that doesnt mess up the original order.
                                 viewAllNumsinOrder();
                             }
+                            else if (result == 3)
+                            {
+                                mainMenu();
+                            }
 
 
                         }
                         else /// so if the parse fails it must be letters or something else
                         {
-                            Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " Only the numbers 1 or 2 please... try again");
+                            Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " Only the numbers 1, 2 or 3 - please... try again");
                         }
 
 
@@ -150,12 +159,12 @@ namespace Bingo_Number_Generator
 
          public void viewAllNumsinOrder()
         {
-            //dotnetpearls
+            //from dotnetpearls
             var ordered = from nums in DrawStorage
                           orderby nums ascending
                           select nums;
 
-            foreach (int value in DrawStorage)
+            foreach (int value in ordered)
             {
                 Console.WriteLine(value);
             }
