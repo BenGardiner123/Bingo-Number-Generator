@@ -151,13 +151,13 @@ namespace Bingo_Number_Generator
                     while (!menuCheck)
                     {
                         Console.WriteLine("1. Select this to input a series of numbers to check agsainst the draw list.");
-                        Console.WriteLine("2. To return to the main menu");
+                        Console.WriteLine("2. Select this to input a series of numbers to check agsainst the draw list.");
                         string userChoice = Console.ReadLine();
                         if (int.TryParse(userChoice, out int result))
                         {
                              if (result <= 0)
                             {
-                                Console.WriteLine (userChoice + "....oh.... thats not a valid input only the numbers 1or 2 please... try again");
+                                Console.WriteLine (userChoice + "....oh.... thats not a valid input only the numbers 1 or 2 please... try again");
                             }
                             if (result == 1)
                             {
@@ -171,16 +171,16 @@ namespace Bingo_Number_Generator
 
                                     if (success)
                                     {
-                                        if(DrawStorage.Contains(chkdAndVerified))
+                                        if(!this.DrawStorage.Contains(chkdAndVerified))
                                         {
-                                           Console.WriteLine(chkdAndVerified + " exists in the list so therefore has been drawn"); 
+                                           Console.WriteLine(chkdAndVerified + " Does not exist in the list so therefore has not been drawn"); 
                                         }
-                                        
+                                        else
+                                        {
+                                            Console.WriteLine(userCheckList[i] + " Exists in the list so therefore has been drawn previously");
+                                        }
                                     }
-                                    else
-                                    {
-                                        Console.WriteLine (userCheckList[i] + "....oh.... thats not a valid input please... try again");
-                                    }
+                                   
                                 }
                                 
                             }
