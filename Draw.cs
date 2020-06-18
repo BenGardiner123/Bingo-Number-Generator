@@ -263,19 +263,29 @@ namespace Bingo_Number_Generator
                             Console.WriteLine("\nTo check another number press 1 ");
                             Console.WriteLine("Otherwise press 2 to return to main menu");
                             string userInput = Console.ReadLine();
-                            int userMenuNum;
+                            int userMenuNum; // this stores the value form my tryParse
                             if (Int32.TryParse(userInput, out userMenuNum)) /// again this test will find out if it is indeed a # - if not the test fails and we can re-loop 
                             {
+                                if (userMenuNum <= 0)
+                                {
+                                    Console.WriteLine(userMenuNum + " .... really? " + " Only numbers above zero please .. try again");
+                                }
                                 if (userMenuNum == 1)
                                 {
                                     checkNuminList();
                                 }
                                 if (userMenuNum == 2)
                                 {
-
+                                    mainMenu();
                                 } 
-
-
+                                else
+                                {
+                                    Console.WriteLine(userMenuNum + " .... really? " + " Only menu choices please..");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine(userInput + ".... really? " + " Please enter just a number.. no words or other funny stuff .. try again");
                             }
                             
                         }
@@ -283,7 +293,7 @@ namespace Bingo_Number_Generator
                 }
                 else
                 {
-                    Console.WriteLine("You failed to enter a number - please try again");
+                    Console.WriteLine(number + ".... really? " + " Please enter just a number.. no words or other funny stuff .. try again");
                 }    
             }
         }
