@@ -155,8 +155,7 @@ namespace Bingo_Number_Generator
                         Console.WriteLine("1. Enter a list of numbers, these will all be checked to see if they have been drawn.");
                         Console.WriteLine("2. To return to the main menu");
                         string userChoice = Console.ReadLine(); // need to try parse
-                        string[] separatingStrings = {" ", ",", "-", "."};
-                        string[] words = userChoice.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                        
                         int result = 0;
                         if (int.TryParse(userChoice, out result)) //so if the user input is parseable its a number
                         {
@@ -170,17 +169,24 @@ namespace Bingo_Number_Generator
                             {
                                 Console.WriteLine("Please enter your numbers");
                                 string userList = Console.ReadLine();
-                                result = 0;
-                                if(int.TryParse(userList, out result))
+                                string[] separatingStrings = {" ", ",", "-", "."};
+                                string[] words = userList.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                                
+                                
+                                foreach (var nums in words) ///crying with laughter
                                 {
-                                    
-                                    this.userBulkEntryList.Add(result);
+                                    result = 0;
+                                    if(int.TryParse(userList, out result))
+                                    {
+                                        this.DrawStorage.Add(result);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine (result + "....oh.... thats not a valid input" + " only input the number 1 or 2 please... try again");
+                                    }
                                 }
-                                else
-                                {
-                                  Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " only input the number 1 or 2 please... try again");
-                                }
-
+                                
+                            
                             }
                             else if (result == 2)
                             {
