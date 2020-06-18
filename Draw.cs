@@ -144,74 +144,44 @@ namespace Bingo_Number_Generator
                 else if (validInput == 4)               
                 //3.	Create a new menu option that allows a list of numbers to be entered.  These will all be checked to see if they have been drawn. 
                 ///https://stackoverflow.com/questions/26622240/c-sharp-user-input-int-to-array
-                 ///https://docs.microsoft.com/en-us/dotnet/csharp/how-to/parse-strings-using-split (omg omg omg this is the first time im understanding the microsoft documentation!!!!!)
+                ///https://docs.microsoft.com/en-us/dotnet/csharp/how-to/parse-strings-using-split (omg omg omg this is the first time im understanding the microsoft documentation!!!!!)
                 {
                     bool menuCheck = false; // again set up the exit trigger (this one was taken from above)
                     while (!menuCheck)
                     {
-                        
-                        Console.WriteLine("1. Enter a list of numbers, these will all be checked to see if they have been drawn.");
+                        Console.WriteLine("1. Select this to input a series of numbers to check agsainst the draw list.");
                         Console.WriteLine("2. To return to the main menu");
-                        string userChoice = Console.ReadLine(); // need to try parse
-                        
-                        int result = 0;
-                        if (int.TryParse(userChoice, out result)) //so if the user input is parseable its a number
+                        string userChoice = Console.ReadLine();
+                        if (int.TryParse(userChoice, out int result))
                         {
-                            
-                            if (result <= 0)
+                             if (result <= 0)
                             {
-                                Console.WriteLine (userChoice + "....oh.... thats not a valid input, only the numbers 1 or 2 please... try again");
-                                continue;
+                                Console.WriteLine (userChoice + "....oh.... thats not a valid input only the numbers 1or 2 please... try again");
                             }
                             if (result == 1)
                             {
-                                Console.WriteLine("Please enter your numbers");
-                                string userList = Console.ReadLine();
-                                
+                                Console.WriteLine("Please enter your numbers with spaces between..");
+                                string userInput = Console.ReadLine();
                                 string[] separatingStrings = {" ", ",", "-", "."}; /// these are the main one 
-                                string[] words = userList.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                                string[] userCheckList = userInput.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
                                 
-                                
-                                foreach (var nums in words) ///crying with laughter
-                                {
-                                    result = 0;
-                                    if(int.TryParse(nums, out result))
-                                    {
-                                        if (this.DrawStorage.Contains(result))
-                                        {
-                                        Console.WriteLine(result);
-                                        }
-                                        
-                                    }
-                                    else
-                                    {
-                                        continue;
-                                    }
-                                }
-                                
-                            
                             }
-                            else if (result == 2)
-                            {
-                                menuCheck = true; /// think this why i was getting wierd CWL's when exiting - otherwise the loop keeps going beasue the exit value wasn;t triggerred.
+                            if (result == 2)
+                            {   
+                                menuCheck = true;
                                 mainMenu();
                             }
                             
-
-
                         }
-                        else /// so if the parse fails it must be letters or something else
+                        else 
                         {
-                            Console.WriteLine (userChoice + "....oh.... thats not a valid input" + " only input the number 1 or 2 please... try again");
+                            Console.WriteLine (userChoice + "....oh.... thats not a valid input only the numbers 1 or 2 please... try again");
                         }
-
-
-
-
+                        
                     }
                     
                 }
-                //5.	Upon pressing “4” the program will exit 
+                //5. Upon pressing “4” the program will exit 
                 else if (validInput == 5)
                 {
                     Console.WriteLine("Thanks for playing.. see you next time");
@@ -226,15 +196,16 @@ namespace Bingo_Number_Generator
         }
 
         ///5.	Upon pressing “4” the program will exit 
-    
+
+      
 
         public void viewAllDrawnnums()
         {
 
-            //console writlien 1 option as they were drawn
-            this.DrawStorage.ForEach(Console.WriteLine);
-            ///option two they get srtoed into numercial order - might have to make a new list to copy them and sort them
-            
+        //console writlien 1 option as they were drawn
+        this.DrawStorage.ForEach(Console.WriteLine);
+        ///option two they get srtoed into numercial order - might have to make a new list to copy them and sort them
+        
 
         }
 
@@ -282,6 +253,8 @@ namespace Bingo_Number_Generator
             mainMenu(); ///beause of the nature of drawing the number they need to go back to the top menu everytime they draw.!-- 
 
         }
+
+
 
         public void getupperLimit()
         {
