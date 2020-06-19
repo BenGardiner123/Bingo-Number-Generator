@@ -14,14 +14,7 @@ namespace Bingo_Number_Generator
             ///1.	Upon starting the program should ask for the upper limit of numbers to be drawn
              ///i.	Program should not accept non-numeric input
             ///ii.	Program should not accept negative numbers
-            d1.getupperLimit();// upper liit then calls main menu 
-
-           
-            
-           
-             
-
-
+            d1.getupperLimit();// upper liit then calls main menu
 
         }
     }
