@@ -242,36 +242,47 @@ namespace Bingo_Number_Generator
                 Console.WriteLine(value);
             }
             
-        
 
         }
 
 
         public void DrawNextNum()
-        {
-            var validNum = false; // exit condition
-
-            var randnum = rand.Next(1, this.upperlimit);
-
-
-            while (validNum == false)
+        {   
+            if (DrawStorage.Count == this.upperlimit)
             {
-                if (!DrawStorage.Contains(randnum))
+                var validNum = false; // exit condition
+
+                var randnum = rand.Next(1, this.upperlimit);
+
+
+                while (validNum == false)
                 {
-                    validNum = true;
-                }
-                else
-                {
-                    randnum = rand.Next(1, this.upperlimit);
+                    if (!DrawStorage.Contains(randnum))
+                    {
+                        validNum = true;
+                    }
+                    else
+                    {
+                        randnum = rand.Next(1, this.upperlimit);
+                    }
+
+
                 }
 
+                DrawStorage.Add(randnum);
+                Console.WriteLine("\n" + randnum + " has just been drawn");
+                ///SortedOrder.add(radnnum); this list then gets sorted when you access it to print for option3.ii 
+        
 
             }
+            else
+            {
+                Console.WriteLine("All numbers have already been drawn");
+            }
+        
+            mainMenu();
 
-            DrawStorage.Add(randnum);
-            Console.WriteLine("\n" + randnum + " has just been drawn");
-            ///SortedOrder.add(radnnum); this list then gets sorted when you access it to print for option3.ii 
-            mainMenu(); ///beause of the nature of drawing the number they need to go back to the top menu everytime they draw.!-- 
+            
 
         }
 
